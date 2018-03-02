@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="yunx_ssm:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="yunx.war">
+      <element id="artifact" artifact-name="yunx_ssm:war exploded" />
+    </root>
+  </artifact>
+</component>
