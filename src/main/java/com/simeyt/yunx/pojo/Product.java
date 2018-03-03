@@ -19,8 +19,17 @@ public class Product {
 
     private Date createDate;
 
-    //非逆向工程字段
-    private Category category;
+    private Category category;//非逆向工程字段
+
+    public ProductImage getFirstProductImage() {
+        return firstProductImage;
+    }
+
+    public void setFirstProductImage(ProductImage firstProductImage) {
+        this.firstProductImage = firstProductImage;
+    }
+
+    private ProductImage firstProductImage;//非逆向工程字段
 
     public Category getCategory() {
         return category;

@@ -14,4 +14,6 @@ public interface ProductService {
     Product get(int id);
 
     List list(int cid);//商品要通过分类的ID获取
+
+    public void setFirstProductImage(Product product);
 }

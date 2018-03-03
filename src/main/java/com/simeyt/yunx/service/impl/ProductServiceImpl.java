@@ -5,7 +5,9 @@ import com.simeyt.yunx.mapper.ProductMapper;
 import com.simeyt.yunx.pojo.Category;
 import com.simeyt.yunx.pojo.Product;
 import com.simeyt.yunx.pojo.ProductExample;
+import com.simeyt.yunx.pojo.ProductImage;
 import com.simeyt.yunx.service.CategoryService;
+import com.simeyt.yunx.service.ProductImageService;
 import com.simeyt.yunx.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class ProductServiceImpl implements ProductService {
     ProductMapper productMapper;
     @Autowired
     CategoryService categoryService;
+    @Autowired
+    ProductImageService productImageService;
     @Override
     public void add(Product product) {
         productMapper.insert(product);
@@ -47,7 +51,8 @@ public class ProductServiceImpl implements ProductService {
     public Product get(int id) {
         Product product = productMapper.selectByPrimaryKey(id);
         setCategory(product);
-        return productMapper.selectByPrimaryKey(id);
+        setFirstProductImage(product);
+        return product;
     }
 
     @Override
@@ -55,6 +60,24 @@ public class ProductServiceImpl implements ProductService {
         ProductExample example = new ProductExample();
         example.createCriteria().andCidEqualTo(cid);//表示查询cid字段
         example.setOrderByClause("id asc");
-        return productMapper.selectByExample(example);
+        List result = productMapper.selectByExample(example);
+        setCategory(result);
+        setFirstProductImage(result);
+        return result;//调用setFirstProductImage(List<Product> ps) 为多个产品设置图片
+    }
+
+    @Override
+    public void setFirstProductImage(Product p) {
+        List<ProductImage> pis = productImageService.list(p.getId(),ProductImageService.type_single);
+        if(!pis.isEmpty()){
+            ProductImage pi =pis.get(0);//把第一图作为缩略图
+            p.setFirstProductImage(pi);//把取出来的图片设置为product的缩略图属性
+        }
+    }
+
+    public void setFirstProductImage(List<Product> ps){//给多个产品设置图片
+        for(Product p : ps){
+            setFirstProductImage(p);
+        }
     }
 }
