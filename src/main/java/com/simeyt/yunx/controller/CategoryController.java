@@ -26,7 +26,7 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
-    @RequestMapping("admin_category_list")
+    @RequestMapping({"admin","admin_category_list"})
     public String list(Model model, Page page){
         PageHelper.offsetPage(page.getStart(),page.getCount());
         List<Category> cs= categoryService.list();
