@@ -21,6 +21,8 @@ public class Product {
 
     private Category category;//非逆向工程字段
 
+    private ProductImage firstProductImage;//非逆向工程字段
+
     public ProductImage getFirstProductImage() {
         return firstProductImage;
     }
@@ -28,8 +30,6 @@ public class Product {
     public void setFirstProductImage(ProductImage firstProductImage) {
         this.firstProductImage = firstProductImage;
     }
-
-    private ProductImage firstProductImage;//非逆向工程字段
 
     public Category getCategory() {
         return category;

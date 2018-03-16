@@ -11,6 +11,16 @@ public class OrderItem {
 
     private Integer number;
 
+    private Product product;// 非逆向工程字段
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
     public Integer getId() {
         return id;
     }
