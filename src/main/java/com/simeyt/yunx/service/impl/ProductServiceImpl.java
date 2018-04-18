@@ -12,6 +12,7 @@ import com.simeyt.yunx.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -62,8 +63,8 @@ public class ProductServiceImpl implements ProductService {
         example.setOrderByClause("id asc");
         List result = productMapper.selectByExample(example);
         setCategory(result);
-        setFirstProductImage(result);
-        return result;//调用setFirstProductImage(List<Product> ps) 为多个产品设置图片
+        setFirstProductImage(result);//调用setFirstProductImage(List<Product> ps) 为多个产品设置图片
+        return result;  //返回集合
     }
 
     @Override
@@ -78,6 +79,35 @@ public class ProductServiceImpl implements ProductService {
     public void setFirstProductImage(List<Product> ps){//给多个产品设置图片
         for(Product p : ps){
             setFirstProductImage(p);
+        }
+    }
+
+    // 以下是前台
+    @Override
+    public void fill(List<Category> cs) {
+        for (Category c : cs) {
+            fill(c);
+        }
+    }
+    @Override
+    public void fill(Category c) {
+        List<Product> ps = list(c.getId());
+        c.setProducts(ps);
+    }
+
+    @Override
+    public void fillByRow(List<Category> cs) {
+        int productNumberEachRow = 8;
+        for (Category c : cs) {
+            List<Product> products =  c.getProducts();
+            List<List<Product>> productsByRow =  new ArrayList<>();
+            for (int i = 0; i < products.size(); i+=productNumberEachRow) {
+                int size = i+productNumberEachRow;
+                size= size>products.size()?products.size():size;
+                List<Product> productsOfEachRow =products.subList(i, size);
+                productsByRow.add(productsOfEachRow);
+            }
+            c.setProductsByRow(productsByRow);
         }
     }
 }
