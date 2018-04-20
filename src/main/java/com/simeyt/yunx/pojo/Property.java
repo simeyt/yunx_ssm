@@ -7,7 +7,8 @@ public class Property {
 
     private String name;
 
-    private Category category;//非逆向工程字段
+    /*非数据库字段*/
+    private Category  category;
 
     public Category getCategory() {
         return category;
@@ -16,7 +17,6 @@ public class Property {
     public void setCategory(Category category) {
         this.category = category;
     }
-
     public Integer getId() {
         return id;
     }

@@ -2,13 +2,8 @@ package com.simeyt.yunx.service.impl;
 
 import com.simeyt.yunx.mapper.CategoryMapper;
 import com.simeyt.yunx.mapper.ProductMapper;
-import com.simeyt.yunx.pojo.Category;
-import com.simeyt.yunx.pojo.Product;
-import com.simeyt.yunx.pojo.ProductExample;
-import com.simeyt.yunx.pojo.ProductImage;
-import com.simeyt.yunx.service.CategoryService;
-import com.simeyt.yunx.service.ProductImageService;
-import com.simeyt.yunx.service.ProductService;
+import com.simeyt.yunx.pojo.*;
+import com.simeyt.yunx.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +17,10 @@ public class ProductServiceImpl implements ProductService {
     CategoryService categoryService;
     @Autowired
     ProductImageService productImageService;
+    @Autowired
+    OrderItemService orderItemService;
+    @Autowired
+    ReviewService reviewService;
     @Override
     public void add(Product product) {
         productMapper.insert(product);
@@ -108,6 +107,22 @@ public class ProductServiceImpl implements ProductService {
                 productsByRow.add(productsOfEachRow);
             }
             c.setProductsByRow(productsByRow);
+        }
+    }
+
+    @Override
+    public void setSaleAndReviewNumber(Product product) {
+        int saleCount = orderItemService.getSaleCount(product.getId());
+        product.setSaleCount(saleCount);
+
+        int RevicewCount = reviewService.getCount(product.getId());
+        product.setReviewCount(RevicewCount);
+    }
+
+    @Override
+    public void setSaleAndReviewNumber(List<Product> products) {
+        for(Product product : products){
+            setSaleAndReviewNumber(product);
         }
     }
 }

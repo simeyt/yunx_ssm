@@ -11,8 +11,8 @@
 	<span>Hi，欢迎来云香优品</span>
 
 	<c:if test="${!empty user}">
-		<a href="loginPage">${user.name}</a>
-		<a href="forelogout">退出</a>
+		<a href="#nowhere">${user.name}</a>
+		<a href="foreloginout">退出</a>
 	</c:if>
 
 	<c:if test="${empty user}">

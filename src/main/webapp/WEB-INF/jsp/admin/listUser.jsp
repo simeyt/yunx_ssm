@@ -4,9 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="../include/admin/adminHeader.jsp"%>
 <%@include file="../include/admin/adminNavigator.jsp"%>
-
+<!DOCTYPE html>
 <title>用户管理</title>
-
 <div class="workingArea">
     <h1 class="label label-info">用户管理</h1>
     <br><br>

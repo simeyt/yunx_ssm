@@ -1,6 +1,5 @@
 package com.simeyt.yunx.mapper;
 
-import com.simeyt.yunx.pojo.PropertyExample;
 import com.simeyt.yunx.pojo.PropertyValue;
 import com.simeyt.yunx.pojo.PropertyValueExample;
 import java.util.List;

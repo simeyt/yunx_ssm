@@ -4,11 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
-
-
 <html>
-
 <head>
 	<script src="js/jquery/2.0.0/jquery.min.js"></script>
 	<link href="css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
@@ -41,9 +37,7 @@
             return true;
         }
 
-
         $(function(){
-
 
             $("a.productDetailTopReviewLink").click(function(){
                 $("div.productReviewDiv").show();
@@ -66,14 +60,12 @@
                 alert("暂时没有跳转到实际的页面");
             });
 
-
             $("a.wangwanglink").click(function(){
                 alert("模仿旺旺的图标，并不会打开旺旺");
             });
             $("a.notImplementLink").click(function(){
                 alert("这个功能没做，蛤蛤~");
             });
-
 
         });
 

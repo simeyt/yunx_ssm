@@ -9,7 +9,8 @@ public class PropertyValue {
 
     private String value;
 
-    private Property property;// 非逆向工程字段
+    /*非数据库字段*/
+    private Property property;
 
     public Property getProperty() {
         return property;
