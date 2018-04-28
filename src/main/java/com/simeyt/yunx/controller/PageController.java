@@ -21,8 +21,9 @@ public class PageController {
         return "fore/login";
     }
 
-    @RequestMapping("adminloginPage")
+    @RequestMapping("adminlogin")
     public String adminloginPage(){
         return "admin/loginAdmin";
     }
+
 }

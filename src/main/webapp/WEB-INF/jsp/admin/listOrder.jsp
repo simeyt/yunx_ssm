@@ -89,7 +89,11 @@
 
                                     </tr>
                                 </c:forEach>
-
+                                <div class="orderPageOrderItem">
+                                    <table  width="800px" align="center" class="orderPageOrderItemTable">
+                                        <th>地址：${o.address}</th><th>邮编：${o.post}</th><th>姓名：${o.receiver}</th><th>电话：${o.mobile}</th>
+                                    </table>
+                                </div>
                             </table>
                         </div>
 

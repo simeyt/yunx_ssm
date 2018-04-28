@@ -31,7 +31,7 @@
     <div class="simpleLogo">
         <a href="forehome"><img src="img/site/yunxlogo.png"></a>
     </div>
-    <img id="loginBackgroundImg" class="loginBackgroundImg" src="img/site/Background.jpg" style="width: 1800px;">
+    <img id="loginBackgroundImg" class="loginBackgroundImg" src="img/site/loginBackground.png" style="width: 1300px;">
 
     <form class="loginForm" action="forelogin" method="post">
         <div id="loginSmallDiv" class="loginSmallDiv">

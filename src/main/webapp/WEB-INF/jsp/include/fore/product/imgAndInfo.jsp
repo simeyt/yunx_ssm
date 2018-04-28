@@ -32,7 +32,7 @@
             $(".productNumberSetting").val(num);
         });
 
-        $(".addCartLink").click(function(){
+        $(".addCartLink").click(function(){ // 未登录状态下会进入模态登陆
             var page = "forecheckLogin";
             $.get(
                 page,
@@ -66,24 +66,25 @@
             );
             return false;
         });
-        $(".buyLink").click(function(){
+
+        $(".buyLink").click(function(){// 未登录状态下会进入模态登陆
             var page = "forecheckLogin";
             $.get(
                 page,
                 function(result){
                     if("success"==result){
                         var num = $(".productNumberSetting").val();
-                        location.href= $(".buyLink").attr("href")+"&num="+num;
+                        location.href= $(".buyLink").attr("href")+"&num="+num;// 已经登陆会获取购买的数量
                     }
                     else{
-                        $("#loginModal").modal('show');
+                        $("#loginModal").modal('show');// 弹出模态登陆
                     }
                 }
             );
             return false;
         });
 
-        $("button.loginSubmitButton").click(function(){
+        $("button.loginSubmitButton").click(function(){// 模态登陆验证
             var name = $("#name").val();
             var password = $("#password").val();
 
@@ -107,7 +108,6 @@
                     }
                 }
             );
-
             return true;
         });
 
@@ -143,7 +143,8 @@
                 <img src="img/productSingle_small/${pi.id}.jpg" bigImageURL="img/productSingle/${pi.id}.jpg" class="smallImage">
             </c:forEach>
         </div>
-        <div class="img4load hidden" ></div>//预加载DIV
+        <%--预加载DIV--%>
+        <div class="img4load hidden" ></div>
     </div>
 
     <div class="infoInimgAndInfo">

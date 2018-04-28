@@ -97,3 +97,10 @@ td{
 th{
 	font-size:14px;
 }
+
+a.admin{
+	color: #3c763d;
+	text-decoration: none;
+	margin-left: 20px;
+	margin-right: 20px;
+}

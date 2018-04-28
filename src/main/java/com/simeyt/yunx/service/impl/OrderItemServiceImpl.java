@@ -97,4 +97,15 @@ public class OrderItemServiceImpl implements OrderItemService {
         }
         return result;
     }
+
+    @Override
+    public List<OrderItem> listByUser(int uid) {
+        OrderItemExample example = new OrderItemExample();
+        example.createCriteria().andUidEqualTo(uid).andOidIsNull();// oid为空，在付款前的数据不在order表中
+        List<OrderItem> result = orderItemMapper.selectByExample(example);
+        if (result.size()>0) {// 判断一下长度，如果OrderItem表中没有数据，会导致空指针异常
+            setProduct(result);
+        }
+        return result;
+    }
 }

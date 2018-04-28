@@ -37,7 +37,7 @@
             return true;
         }
 
-        $(function(){
+        $(function(){//切换商品详情和累计评价效果
 
             $("a.productDetailTopReviewLink").click(function(){
                 $("div.productReviewDiv").show();

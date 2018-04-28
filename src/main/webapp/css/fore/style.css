@@ -963,7 +963,7 @@ div.productParamterList span {
 a.selected {
 	border-left: 1px solid #cfbfb1;
 	border-right: 1px solid #cfbfb1;
-	color: #b10000;
+	color: #7dc473;
 	display: inline-block;
 	font-weight: bold;
 	line-height: 46px;
@@ -973,7 +973,7 @@ a.selected {
 }
 
 a.selected:after {
-	border-color: #b00000 transparent transparent;
+	border-color: #7dc473 transparent transparent;
 	border-style: solid;
 	border-width: 5px;
 	content: "";
@@ -987,7 +987,7 @@ a.selected:after {
 }
 
 a.selected:before {
-	border-color: #b00000;
+	border-color: #7dc473;
 	border-style: solid;
 	border-width: 1px;
 	content: "";
@@ -1184,7 +1184,7 @@ span.wangwangGif {
 	display: inline-block;
 	width: 25px;
 	height: 25px;
-	background-image: url(../../img/site/wangwang.gif);
+	background-image: url(../../img/site/fanchuan.png);
 	background-repeat: no-repeat;
 	background-color: transparent;
 	background-attachment: scroll;

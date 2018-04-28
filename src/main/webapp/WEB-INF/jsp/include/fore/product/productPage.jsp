@@ -7,10 +7,13 @@
 </div>
 
 <div class="productPageDiv">
+    <%--单个图片和基本信息--%>
+    <%@include file="imgAndInfo.jsp" %>
 
-    <%@include file="imgAndInfo.jsp" %> // 单个图片和基本信息
+    <%--评价信息--%>
+    <%@include file="productReview.jsp" %>
 
-    <%@include file="productReview.jsp" %> // 评价信息
+    <%--详情图片--%>
+    <%@include file="productDetail.jsp" %>
 
-    <%@include file="productDetail.jsp" %> // 详情图片
 </div>
